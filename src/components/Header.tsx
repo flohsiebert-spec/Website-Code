@@ -9,7 +9,11 @@ export function Header() {
   return (
     <header className="header">
       <div className="container header__inner">
-        <a href="#top" className="header__logo" onClick={() => setMenuOpen(false)}>
+        <a
+          href={`${import.meta.env.BASE_URL}#top`}
+          className="header__logo"
+          onClick={() => setMenuOpen(false)}
+        >
           <span className="icon header__logo-icon">
             <LeafIcon />
           </span>
@@ -28,7 +32,11 @@ export function Header() {
 
         <nav className={`header__nav ${menuOpen ? 'header__nav--open' : ''}`}>
           {navLinks.map((link) => (
-            <a key={link.href} href={link.href} onClick={() => setMenuOpen(false)}>
+            <a
+              key={link.href}
+              href={`${import.meta.env.BASE_URL}${link.href}`}
+              onClick={() => setMenuOpen(false)}
+            >
               {link.label}
             </a>
           ))}

@@ -1,0 +1,42 @@
+.legal {
+  padding: 64px 0 96px;
+}
+
+.legal__container {
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+}
+
+.legal__title {
+  font-size: 36px;
+  margin-bottom: 8px;
+}
+
+.legal h2 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 21px;
+  margin-top: 36px;
+  margin-bottom: 12px;
+}
+
+.legal p {
+  color: var(--color-ink-soft);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.legal a {
+  word-break: break-word;
+}
+
+.legal__notice {
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 16px 20px;
+  font-size: 14px;
+  color: var(--color-ink-soft);
+  margin-top: 24px;
+}

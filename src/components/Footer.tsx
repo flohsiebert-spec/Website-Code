@@ -43,7 +43,7 @@ export function Footer() {
           <nav className="footer__nav">
             <span className="footer__nav-title">Navigation</span>
             {navLinks.map((link) => (
-              <a key={link.href} href={link.href}>
+              <a key={link.href} href={`${import.meta.env.BASE_URL}${link.href}`}>
                 {link.label}
               </a>
             ))}
@@ -78,7 +78,11 @@ export function Footer() {
 
         <div className="footer__bottom">
           <span>© 2026 Querbeet Bioladen · Alle Rechte vorbehalten</span>
-          <span>Impressum · Datenschutz</span>
+          <span className="footer__legal-links">
+            <a href={`${import.meta.env.BASE_URL}impressum.html`}>Impressum</a>
+            {' · '}
+            <a href={`${import.meta.env.BASE_URL}datenschutz.html`}>Datenschutz</a>
+          </span>
         </div>
       </div>
     </footer>

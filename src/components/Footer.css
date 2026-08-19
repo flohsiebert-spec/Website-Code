@@ -129,6 +129,14 @@
   font-size: 13.5px;
 }
 
+.footer__legal-links a {
+  color: var(--color-footer-muted);
+}
+
+.footer__legal-links a:hover {
+  color: var(--color-footer-text);
+}
+
 @media (max-width: 760px) {
   .footer__grid {
     grid-template-columns: 1fr;
