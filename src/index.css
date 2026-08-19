@@ -1,0 +1,139 @@
+:root {
+  --color-bg: #f7f2e7;
+  --color-bg-alt: #efe4cd;
+  --color-ink: #2b2417;
+  --color-ink-soft: #5c5138;
+  --color-card: #fffdf7;
+  --color-border: #ddceac;
+  --color-green: #3f6b4a;
+  --color-green-dark: #315339;
+  --color-terracotta: #b5652f;
+
+  --color-footer-bg: #2b2417;
+  --color-footer-border: #4a4231;
+  --color-footer-muted: #a89a76;
+  --color-footer-text: #f7f2e7;
+
+  --font-heading: 'Spectral', Georgia, serif;
+  --font-body: 'Karla', system-ui, sans-serif;
+
+  --container-width: 1120px;
+
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: var(--color-green);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-green-dark);
+}
+
+button {
+  font-family: var(--font-body);
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-green);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 26px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  min-height: 44px;
+  line-height: 1;
+}
+
+.btn-primary {
+  background: var(--color-green);
+  color: #fdfaf2;
+}
+
+.btn-primary:hover {
+  background: var(--color-green-dark);
+  color: #fdfaf2;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--color-ink);
+  border-color: var(--color-ink);
+}
+
+.btn-outline:hover {
+  background: var(--color-ink);
+  color: var(--color-bg);
+}
+
+.icon {
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

@@ -1,0 +1,92 @@
+.contact {
+  padding: 76px 0;
+  background: var(--color-bg-alt);
+}
+
+.contact__grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 56px;
+}
+
+.contact__info {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.contact__heading {
+  font-size: 30px;
+}
+
+.contact__info-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--color-ink-soft);
+}
+
+.contact__info-icon {
+  width: 20px;
+  height: 20px;
+  color: var(--color-green);
+}
+
+.contact__form {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 18px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.contact__field label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-ink-soft);
+}
+
+.contact__field input,
+.contact__field textarea {
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
+  padding: 0 14px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  background: var(--color-bg);
+  color: var(--color-ink);
+}
+
+.contact__field input {
+  height: 46px;
+}
+
+.contact__field textarea {
+  padding: 12px 14px;
+  resize: vertical;
+}
+
+.contact__submit {
+  align-self: flex-start;
+  margin-top: 6px;
+}
+
+.contact__success {
+  color: var(--color-green-dark);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+@media (max-width: 760px) {
+  .contact__grid {
+    grid-template-columns: 1fr;
+  }
+}
