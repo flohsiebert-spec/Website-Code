@@ -2,10 +2,12 @@ import { MapPinIcon } from './Icons'
 import './Visit.css'
 
 const hours = [
-  { days: 'Montag – Freitag', time: '8:00 – 18:30 Uhr' },
-  { days: 'Samstag', time: '8:00 – 13:00 Uhr' },
+  { days: 'Montag – Freitag', time: '9:00 – 18:00 Uhr' },
+  { days: 'Samstag', time: '9:00 – 14:00 Uhr' },
   { days: 'Sonntag', time: 'Ruhetag' },
 ]
+
+const address = 'Klosterstraße 9, 31737 Rinteln'
 
 export function Visit() {
   return (
@@ -27,13 +29,25 @@ export function Visit() {
         <div className="visit__column">
           <span className="eyebrow">Anfahrt</span>
           <h2 className="visit__heading">So finden Sie uns</h2>
-          <div className="visit__address">
+          <a
+            className="visit__address"
+            href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`}
+            target="_blank"
+            rel="noreferrer"
+          >
             <span className="icon visit__address-icon">
               <MapPinIcon />
             </span>
-            <span>[Adresse einfügen]</span>
+            <span>{address}</span>
+          </a>
+          <div className="visit__map">
+            <iframe
+              title="Lageplan Querbeet Bioladen"
+              src={`https://www.google.com/maps?q=${encodeURIComponent(address)}&output=embed`}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
           </div>
-          <div className="visit__map">[Kartenausschnitt / Lageplan]</div>
         </div>
       </div>
     </section>

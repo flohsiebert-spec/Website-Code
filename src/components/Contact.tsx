@@ -23,20 +23,20 @@ export function Contact() {
             <span className="icon contact__info-icon">
               <MapPinIcon />
             </span>
-            <span>[Adresse einfügen]</span>
+            <span>Klosterstraße 9, 31737 Rinteln</span>
           </div>
-          <div className="contact__info-row">
+          <a className="contact__info-row" href="tel:+4957519246378">
             <span className="icon contact__info-icon">
               <PhoneIcon />
             </span>
-            <span>[Telefonnummer einfügen]</span>
-          </div>
-          <div className="contact__info-row">
+            <span>05751 9246378</span>
+          </a>
+          <a className="contact__info-row" href="mailto:querbeet-rinteln@t-online.de">
             <span className="icon contact__info-icon">
               <MailIcon />
             </span>
-            <span>[E-Mail einfügen]</span>
-          </div>
+            <span>querbeet-rinteln@t-online.de</span>
+          </a>
         </div>
 
         <form className="contact__form" onSubmit={handleSubmit}>

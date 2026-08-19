@@ -28,9 +28,7 @@ npm run preview
 - `src/index.css` – Design-Tokens (Farben, Schriften) sowie globale Resets
   und Utility-Klassen (`.container`, `.btn`, `.eyebrow`, …)
 
-## Offene Platzhalter
+## Offene Punkte
 
-Adresse, Telefonnummer, E-Mail-Adresse und der Kartenausschnitt sind aktuell
-als `[…]`-Platzhalter markiert und müssen mit echten Kontaktdaten befüllt
-werden. Das Kontaktformular und die Newsletter-Anmeldung sind vorbereitet,
-aber noch an keinen Versanddienst (E-Mail-API, Newsletter-Tool) angebunden.
+Das Kontaktformular und die Newsletter-Anmeldung sind vorbereitet, aber noch
+an keinen Versanddienst (E-Mail-API, Newsletter-Tool) angebunden.
