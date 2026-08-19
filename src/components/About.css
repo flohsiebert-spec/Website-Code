@@ -1,0 +1,53 @@
+.about {
+  padding: 64px 0 76px;
+}
+
+.about__intro {
+  max-width: 640px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.about__heading {
+  font-size: 32px;
+}
+
+.about__lead {
+  color: var(--color-ink-soft);
+  font-size: 17px;
+}
+
+.about__pillars {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+}
+
+.about__pillar {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.about__pillar-icon {
+  width: 34px;
+  height: 34px;
+  color: var(--color-green);
+}
+
+.about__pillar-title {
+  font-size: 19px;
+}
+
+.about__pillar-text {
+  color: var(--color-ink-soft);
+  font-size: 15px;
+}
+
+@media (max-width: 760px) {
+  .about__pillars {
+    grid-template-columns: 1fr;
+  }
+}

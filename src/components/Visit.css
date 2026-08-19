@@ -1,0 +1,76 @@
+.visit {
+  padding: 76px 0;
+}
+
+.visit__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+}
+
+.visit__column {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.visit__heading {
+  font-size: 30px;
+}
+
+.visit__hours {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--color-border);
+}
+
+.visit__hours-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.visit__hours-days {
+  font-weight: 600;
+}
+
+.visit__hours-time {
+  color: var(--color-ink-soft);
+}
+
+.visit__address {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  color: var(--color-ink-soft);
+}
+
+.visit__address-icon {
+  width: 22px;
+  height: 22px;
+  color: var(--color-green);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.visit__map {
+  position: relative;
+  height: 180px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-alt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-ink-soft);
+  font-size: 13px;
+  text-align: center;
+}
+
+@media (max-width: 760px) {
+  .visit__grid {
+    grid-template-columns: 1fr;
+  }
+}

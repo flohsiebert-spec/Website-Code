@@ -1,0 +1,79 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero__grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 56px;
+  align-items: center;
+  padding-top: 72px;
+  padding-bottom: 72px;
+}
+
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.hero__headline {
+  font-size: 46px;
+  max-width: 12ch;
+}
+
+.hero__lead {
+  font-size: 18px;
+  color: var(--color-ink-soft);
+  max-width: 46ch;
+}
+
+.hero__actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.hero__visual {
+  position: relative;
+  height: 380px;
+}
+
+.hero__visual-shape {
+  position: absolute;
+  inset: 0;
+  background: var(--color-bg-alt);
+  border-radius: 62% 38% 41% 59% / 55% 42% 58% 45%;
+}
+
+.hero__visual-placeholder {
+  position: absolute;
+  inset: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: var(--color-ink-soft);
+  font-size: 13px;
+  text-align: center;
+}
+
+.hero__visual-icon {
+  width: 56px;
+  height: 56px;
+  color: var(--color-green);
+}
+
+@media (max-width: 760px) {
+  .hero__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__visual {
+    order: -1;
+    height: 220px;
+  }
+}
