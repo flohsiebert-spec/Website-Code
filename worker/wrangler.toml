@@ -1,0 +1,13 @@
+name = "querbeet-contact"
+main = "src/index.ts"
+compatibility_date = "2026-08-19"
+
+# Public config — nothing secret here. The SMTP password is set separately
+# with `wrangler secret put SMTP_PASSWORD` and never lives in this file.
+[vars]
+ALLOWED_ORIGIN = "https://flohsiebert-spec.github.io"
+SMTP_HOST = "mail.biohost.de"
+SMTP_PORT = "465"
+SMTP_USER = "webmaster@querbeet-rinteln.de"
+SMTP_FROM = "webmaster@querbeet-rinteln.de"
+SMTP_TO = "webmaster@querbeet-rinteln.de"

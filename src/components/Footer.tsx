@@ -1,15 +1,34 @@
 import { useState, type FormEvent } from 'react'
 import { navLinks } from '../data/navigation'
+import { submitForm } from '../lib/contactApi'
 import { FacebookIcon, InstagramIcon, LeafIcon } from './Icons'
 import './Footer.css'
 
-export function Footer() {
-  const [subscribed, setSubscribed] = useState(false)
+type Status = 'idle' | 'sending' | 'success' | 'error'
 
-  // Kein Newsletter-Dienst angebunden: sammelt aktuell nur clientseitig.
-  function handleSubscribe(event: FormEvent<HTMLFormElement>) {
+export function Footer() {
+  const [status, setStatus] = useState<Status>('idle')
+  const [errorMessage, setErrorMessage] = useState('')
+
+  async function handleSubscribe(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    setSubscribed(true)
+    const form = event.currentTarget
+    const data = new FormData(form)
+
+    setStatus('sending')
+    const result = await submitForm({
+      type: 'newsletter',
+      email: String(data.get('email') ?? '').trim(),
+      honeypot: String(data.get('company') ?? ''),
+    })
+
+    if (result.ok) {
+      setStatus('success')
+      form.reset()
+    } else {
+      setStatus('error')
+      setErrorMessage(result.error)
+    }
   }
 
   return (
@@ -55,22 +74,38 @@ export function Footer() {
               Saisonale Angebote und Neuigkeiten aus dem Laden – ab und zu, nicht öfter.
             </p>
             <form className="footer__newsletter-form" onSubmit={handleSubscribe}>
+              <div className="hp-field" aria-hidden="true">
+                <label htmlFor="footer-newsletter-company">Firma</label>
+                <input
+                  id="footer-newsletter-company"
+                  name="company"
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+              </div>
               <label htmlFor="footer-newsletter-email" className="visually-hidden">
                 E-Mail-Adresse
               </label>
               <input
                 id="footer-newsletter-email"
+                name="email"
                 type="email"
                 placeholder="E-Mail-Adresse"
                 required
               />
-              <button type="submit" className="btn btn-primary">
-                Anmelden
+              <button type="submit" className="btn btn-primary" disabled={status === 'sending'}>
+                {status === 'sending' ? 'Wird gesendet …' : 'Anmelden'}
               </button>
             </form>
-            {subscribed && (
+            {status === 'success' && (
               <p className="footer__newsletter-success" role="status">
                 Danke! Sie sind angemeldet.
+              </p>
+            )}
+            {status === 'error' && (
+              <p className="footer__newsletter-error" role="alert">
+                {errorMessage}
               </p>
             )}
           </div>

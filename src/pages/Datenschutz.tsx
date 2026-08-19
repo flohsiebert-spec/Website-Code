@@ -59,16 +59,24 @@ export default function Datenschutz() {
 
       <h2>5. Kontaktformular</h2>
       <p>
-        Das Kontaktformular auf dieser Website ist aktuell technisch noch nicht an einen
-        Versanddienst angebunden: Eingaben werden nicht an einen Server übertragen oder
-        gespeichert. Sobald ein echter Versand eingerichtet ist, wird dieser Abschnitt um
-        Zweck, Rechtsgrundlage und Speicherdauer der Verarbeitung ergänzt.
+        Wenn Sie das Kontaktformular nutzen, werden Ihre Angaben (Name, E-Mail-Adresse,
+        Nachricht) an eine von uns selbst betriebene Funktion bei Cloudflare, Inc. (Cloudflare
+        Workers) übermittelt und von dort per E-Mail an unser Postfach beim Hoster
+        weitergeleitet. Die Daten werden dabei ausschließlich zur Zustellung der E-Mail
+        verarbeitet und nicht dauerhaft auf dem Server gespeichert. Rechtsgrundlage ist Art. 6
+        Abs. 1 lit. b DSGVO (Bearbeitung Ihrer Anfrage) bzw. lit. f DSGVO (unser Interesse an
+        der Beantwortung von Anfragen). Die E-Mail selbst wird in unserem Postfach gespeichert,
+        bis sie nicht mehr benötigt wird.
       </p>
 
       <h2>6. Newsletter-Anmeldung</h2>
       <p>
-        Auch die Newsletter-Anmeldung im Footer ist aktuell nicht an einen Versanddienst
-        angebunden: Es werden keine E-Mail-Adressen übertragen oder gespeichert.
+        Die Newsletter-Anmeldung im Footer versendet Ihre E-Mail-Adresse auf demselben Weg
+        (Cloudflare Workers → E-Mail an unser Postfach) als Benachrichtigung an uns. Es handelt
+        sich aktuell noch nicht um ein automatisiertes Newsletter-Tool mit eigener
+        Empfängerliste – wir nehmen Sie nach Anmeldung manuell in unseren Verteiler auf.
+        Rechtsgrundlage ist Ihre Einwilligung (Art. 6 Abs. 1 lit. a DSGVO), die Sie jederzeit
+        formlos widerrufen können.
       </p>
 
       <h2>7. Ihre Rechte</h2>

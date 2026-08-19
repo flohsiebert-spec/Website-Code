@@ -1,16 +1,35 @@
 import { useState, type FormEvent } from 'react'
+import { submitForm } from '../lib/contactApi'
 import { MailIcon, MapPinIcon, PhoneIcon } from './Icons'
 import './Contact.css'
 
-export function Contact() {
-  const [submitted, setSubmitted] = useState(false)
+type Status = 'idle' | 'sending' | 'success' | 'error'
 
-  // Kein Backend angebunden: das Formular sammelt aktuell nur clientseitig.
-  // Sobald ein Versandweg (E-Mail-Dienst / API) feststeht, hier den echten
-  // Request auslösen statt nur den lokalen Zustand zu setzen.
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+export function Contact() {
+  const [status, setStatus] = useState<Status>('idle')
+  const [errorMessage, setErrorMessage] = useState('')
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    setSubmitted(true)
+    const form = event.currentTarget
+    const data = new FormData(form)
+
+    setStatus('sending')
+    const result = await submitForm({
+      type: 'contact',
+      name: String(data.get('name') ?? '').trim(),
+      email: String(data.get('email') ?? '').trim(),
+      message: String(data.get('message') ?? '').trim(),
+      honeypot: String(data.get('company') ?? ''),
+    })
+
+    if (result.ok) {
+      setStatus('success')
+      form.reset()
+    } else {
+      setStatus('error')
+      setErrorMessage(result.error)
+    }
   }
 
   return (
@@ -40,6 +59,10 @@ export function Contact() {
         </div>
 
         <form className="contact__form" onSubmit={handleSubmit}>
+          <div className="hp-field" aria-hidden="true">
+            <label htmlFor="contact-company">Firma</label>
+            <input id="contact-company" name="company" type="text" tabIndex={-1} autoComplete="off" />
+          </div>
           <div className="contact__field">
             <label htmlFor="contact-name">Name</label>
             <input id="contact-name" name="name" type="text" placeholder="Ihr Name" required />
@@ -64,12 +87,21 @@ export function Contact() {
               required
             />
           </div>
-          <button type="submit" className="btn btn-primary contact__submit">
-            Nachricht senden
+          <button
+            type="submit"
+            className="btn btn-primary contact__submit"
+            disabled={status === 'sending'}
+          >
+            {status === 'sending' ? 'Wird gesendet …' : 'Nachricht senden'}
           </button>
-          {submitted && (
+          {status === 'success' && (
             <p className="contact__success" role="status">
               Danke für Ihre Nachricht! Wir melden uns so schnell wie möglich.
+            </p>
+          )}
+          {status === 'error' && (
+            <p className="contact__error" role="alert">
+              {errorMessage}
             </p>
           )}
         </form>

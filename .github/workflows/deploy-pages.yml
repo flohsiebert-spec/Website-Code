@@ -25,6 +25,11 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+        env:
+          # Set as a repo Actions variable once the Cloudflare Worker is
+          # deployed (Settings → Secrets and variables → Actions → Variables).
+          # Not secret — it's just the public endpoint URL.
+          VITE_CONTACT_ENDPOINT: ${{ vars.CONTACT_ENDPOINT }}
       - uses: actions/configure-pages@v5
         with:
           enablement: true
